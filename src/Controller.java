@@ -2,39 +2,65 @@ import java.util.Scanner;
 
 public class Controller {
     private Database db;
+    private final Scanner keyboard = new Scanner(System.in);
+    private final Database superHeroList = new Database();
+
+
+    public void GUI() {
+        boolean isRunning = true;
+        while(isRunning) {
+            System.out.println("Vælg handling");
+            System.out.println("1: Skab helt");
+            System.out.println("2: Vis helte");
+            System.out.println("3: Afslut");
+            int option = keyboard.nextInt();
+            switch (option) {
+                case 1:
+                    createHero();
+                    break;
+                case 2:
+                    listHeroes();
+                    break;
+                case 3:
+                    isRunning = false;
+                    break;
+            }
+        }
+    }
+
      public void createHero() {
-         Scanner keyboard = new Scanner(System.in);
-         Database superHeroList = new Database();
-         for (int i = 0; i < 2; i++) {
-             String name = "";
-             String realName = "";
-             String superPower = "";
-             int yearCreated = 0;
-             String race = "";
-             String strength = "";
+             String name;
+             String realName;
+             String superPower;
+             int yearCreated;
+             String race;
+             int strength;
 
              System.out.println("Hvad er superheltens navn?");
-             name = keyboard.next();
+             keyboard.nextLine();
+             name = keyboard.nextLine();
 
              System.out.println("Hvad er superheltens rigtige navn?");
-             realName = keyboard.next();
+             realName = keyboard.nextLine();
 
              System.out.println("Hvad er superheltens superkraft?");
-             superPower = keyboard.next();
+             superPower = keyboard.nextLine();
 
              System.out.println("Hvilket år er superhelten skabt?");
              yearCreated = keyboard.nextInt();
              keyboard.nextLine();
 
              System.out.println("Hvad er superheltens race?");
-             race = keyboard.next();
+             race = keyboard.nextLine();
 
              System.out.println("Hvad er superheltens styrke?");
-             strength = keyboard.next();
+             strength = keyboard.nextInt();
 
              superHeroList.addHero(name, realName, superPower, yearCreated, race, strength);
          }
-         superHeroList.printheroes();
+
+     public void listHeroes() {
+          superHeroList.printheroes();
      }
 
 }

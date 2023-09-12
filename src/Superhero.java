@@ -4,10 +4,10 @@ public class Superhero {
     private String realName;
     private String superPower;
     private int yearCreated;
-    private String race;
-    private String strength;
+    private final String race;
+    private int strength;
 
-    public Superhero(String name, String realName, String superPower, int yearCreated, String race, String strength) {
+    public Superhero(String name, String realName, String superPower, int yearCreated, String race, int strength) {
         this.name = name;
         this.realName = name;
         this.superPower = superPower;
@@ -55,11 +55,11 @@ public class Superhero {
         public void setRace (String race) {
         }
 
-        public String getstrength () {
+        public int getstrength () {
             return strength;
         }
 
-        public void setgetstrenght (String getstrength){
+        public void setgetstrenght (int getstrength){
             this.strength = strength;
         }
 
